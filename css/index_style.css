@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 适配大屏幕设备 */
+@media only screen and (min-width: 601px) {
+    /* ...保持现有样式不变... */
+
+header {
+    display: flex;
+    flex-wrap: nowrap; /* 不允许换行，确保所有元素在一行显示 */
+    justify-content: space-between; /* 两端对齐 */
+    align-items: center;
+    padding: 20px;
+}
+
+#logo {
+    height: 50px;
+    flex: 0 0 auto;
+    max-width: 200px; /* 添加一个最大宽度 */
+    width: auto; /* 保持宽度与高度的比例 */
+    margin-right: 80px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+    margin-top: 5px;
+    flex: 1; /* 让导航栏占据剩余空间 */
+    justify-content: space-around;
+    /* 移除order: 2; 如果我们不需要调整DOM的视觉顺序 */ 
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* 添加黑色的文本阴影 */
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+
+#buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end; /* 改变对齐方式为右对齐 */
+    flex: 100%;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px);
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+}
+
+/* Responsive styles */
+/* 适配小屏幕设备 */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 5px;
+    }
+
+    #logo {
+        margin-left: auto;
+        margin-right: auto;
+        order: 0;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        order: 1;
+    }
+
+    nav a {
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    #buttons {
+        flex-direction: column;
+        align-items: right;
+        order: 2;
+    }
+
+    .button {
+        width: 100%;
+        box-sizing: border-box; /* 确保padding不会使按钮超出屏幕宽度 */
+    }
+
+    main {
+        padding: 10px;
+        box-sizing: border-box; /* 处理padding对宽度的影响 */
+        font-size: 1.5em;
+        height: auto; /* 适应不同内容高度 */
+    }
+}
