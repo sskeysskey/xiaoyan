@@ -1,131 +1,167 @@
-html {
-    height: 100%;
+/* 全局样式 */
+* {
     margin: 0;
     padding: 0;
-    background-image: url('../images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    box-sizing: border-box;
 }
 
+html,
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #333;
 }
 
-/* 适配大屏幕设备 */
-@media only screen and (min-width: 601px) {
-    /* ...保持现有样式不变... */
-
+/* 头部样式 */
 header {
     display: flex;
-    flex-wrap: nowrap; /* 不允许换行，确保所有元素在一行显示 */
-    justify-content: space-between; /* 两端对齐 */
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #logo {
-    height: 50px;
-    flex: 0 0 auto;
-    max-width: 200px; /* 添加一个最大宽度 */
-    width: auto; /* 保持宽度与高度的比例 */
-    margin-right: 80px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-nav {
-    display: flex;
-    gap: 50px;
-    margin-top: 5px;
-    flex: 1; /* 让导航栏占据剩余空间 */
-    justify-content: space-around;
-    /* 移除order: 2; 如果我们不需要调整DOM的视觉顺序 */ 
+    height: 60px;
+    max-width: 200px;
+    width: auto;
 }
 
 nav a {
     text-decoration: none;
-    color: white;
-    font-size: 20px;
+    color: #333;
     font-weight: bold;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* 添加黑色的文本阴影 */
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+    border-radius: 5px;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    color: #ddd;
+    color: #ff9a9e;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 #buttons {
     display: flex;
-    gap: 20px;
-    justify-content: flex-end; /* 改变对齐方式为右对齐 */
-    flex: 100%;
+    gap: 15px;
 }
 
 .button {
     padding: 10px 20px;
     font-size: 16px;
     text-decoration: none;
-    background-color: #4CAF50;
+    background-color: #ff9a9e;
     color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.button:hover {
+    background-color: #fad0c4;
+    transform: scale(1.05);
+}
+
+/* 主要内容样式 */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 140px);
-    font-size: 2em;
+    height: calc(100vh - 160px);
+    text-align: center;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
 }
 
-/* Responsive styles */
-/* 适配小屏幕设备 */
-@media only screen and (max-width: 600px) {
+.intro h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.intro p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计 */
+
+/* 适配大屏幕设备 */
+@media (min-width: 768px) {
     header {
-        padding: 5px;
-    }
-
-    #logo {
-        margin-left: auto;
-        margin-right: auto;
-        order: 0;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        order: 1;
+        padding: 30px;
     }
 
     nav a {
-        padding: 10px;
-        text-align: center;
-        width: 100%;
-    }
-
-    #buttons {
-        flex-direction: column;
-        align-items: right;
-        order: 2;
+        font-size: 18px;
     }
 
     .button {
-        width: 100%;
-        box-sizing: border-box; /* 确保padding不会使按钮超出屏幕宽度 */
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+
+    .intro h1 {
+        font-size: 4rem;
+    }
+
+    .intro p {
+        font-size: 1.75rem;
+    }
+}
+
+/* 适配小屏幕设备 */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #logo {
+        margin-bottom: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #buttons {
+        margin-top: 20px;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro p {
+        font-size: 1.25rem;
     }
 
     main {
-        padding: 10px;
-        box-sizing: border-box; /* 处理padding对宽度的影响 */
-        font-size: 1.5em;
-        height: auto; /* 适应不同内容高度 */
+        padding: 20px;
     }
 }
